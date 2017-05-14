@@ -43,9 +43,9 @@ public class AndroidMeActivity extends AppCompatActivity {
 
         // TODO (5) Create a new BodyPartFragment instance and display it using the FragmentManager
 
-        BodyPartFragment headFagment = new BodyPartFragment();
-        headFagment.setImageIds(AndroidImageAssets.getHeads());
-        headFagment.setListIndex(1);
+        BodyPartFragment headFragment = new BodyPartFragment();
+        headFragment.setImageIds(AndroidImageAssets.getHeads());
+        headFragment.setListIndex(1);
 
         BodyPartFragment bodyFagment = new BodyPartFragment();
         bodyFagment.setImageIds(AndroidImageAssets.getBodies());
@@ -57,13 +57,13 @@ public class AndroidMeActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                        .add(R.id.head_container, headFagment)
+                        .add(R.id.head_container, headFragment)
                         .commit();
-//        fragmentManager.beginTransaction()
-//                .add(R.id.body_container, bodyFagment)
-//                .commit();
-//        fragmentManager.beginTransaction()
-//                .add(R.id.leg_container, legFagment)
-//                .commit();
+        fragmentManager.beginTransaction()
+                .add(R.id.body_container, bodyFagment)
+                .commit();
+        fragmentManager.beginTransaction()
+                .add(R.id.leg_container, legFagment)
+                .commit();
     }
 }

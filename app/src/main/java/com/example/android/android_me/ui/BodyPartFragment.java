@@ -3,6 +3,7 @@ package com.example.android.android_me.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,11 @@ public class BodyPartFragment extends Fragment{
         ImageView imageView = (ImageView) rootView.findViewById(R.id.body_part);
 //        imageView.setImageResource(AndroidImageAssets.getHeads().get(0));
 
-        if(mImageIds == null) {
-            imageView.setImageResource(mImageIds.get(mListIndex));
+
+        if(mImageIds != null) {
+            imageView.setImageResource(this.mImageIds.get(mListIndex));
+        }else {
+            Log.e("TAG", "Error no image ----------------");
         }
         return rootView;
     }
