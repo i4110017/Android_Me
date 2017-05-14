@@ -6,14 +6,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.android.android_me.R;
+
+import java.util.List;
 
 /**
  * Created by mintra on 5/14/17.
  */
 
 public class BodyPartFragment extends Fragment{
+
+    private List<Integer> mImageIds;
+    private int mListIndex;
 
     public BodyPartFragment() {
 
@@ -22,6 +28,22 @@ public class BodyPartFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.id.body_part, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_body_part, container, false);
+
+        ImageView imageView = (ImageView) rootView.findViewById(R.id.body_part);
+//        imageView.setImageResource(AndroidImageAssets.getHeads().get(0));
+
+        if(mImageIds == null) {
+            imageView.setImageResource(mImageIds.get(mListIndex));
+        }
+        return rootView;
+    }
+
+    public void setImageIds(List<Integer> mImageIds) {
+        this.mImageIds = mImageIds;
+    }
+
+    public void setListIndex(int mListIndex) {
+        this.mListIndex = mListIndex;
     }
 }
